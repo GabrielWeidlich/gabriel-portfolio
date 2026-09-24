@@ -16,7 +16,7 @@ export function SiteHeader() {
           <span className="brand-mark">GWS</span>
           <span className="brand-name">Gabriel Weidlich Santos</span>
         </Link>
-        <nav className="desktop-nav" aria-label="Primary navigation">
+        <nav className="main-nav" aria-label="Primary navigation">
           {navigation.map((item) => <Link key={item.href} href={item.href}>{item.label}</Link>)}
         </nav>
         <a className="header-github" href="https://github.com/GabrielWeidlich" target="_blank" rel="noreferrer">

@@ -29,8 +29,8 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
 .brand { display: inline-flex; align-items: center; gap: 12px; margin-right: auto; }
 .brand-mark { color: var(--accent); font: 600 13px var(--font-mono), monospace; letter-spacing: .08em; }
 .brand-name { font-size: 14px; font-weight: 500; letter-spacing: .01em; }
-.desktop-nav { display: flex; gap: 24px; color: var(--muted); font-size: 14px; }
-.desktop-nav a:hover, .header-github:hover, .project-card-footer a:hover { color: var(--accent); }
+.main-nav { display: flex; gap: 24px; color: var(--muted); font-size: 14px; }
+.main-nav a:hover, .header-github:hover, .project-card-footer a:hover { color: var(--accent); }
 .header-github { color: var(--accent); font: 13px var(--font-mono), monospace; }
 .page-shell { min-height: calc(100vh - 150px); }
 .hero { border-bottom: 1px solid var(--line); padding: 112px 0 124px; position: relative; overflow: hidden; }
@@ -59,7 +59,7 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
 .project-card p { color: var(--muted); font-size: 14px; margin: 0; }
 .project-card-footer { display: flex; gap: 20px; margin-top: auto; padding-top: 30px; font: 13px var(--font-mono), monospace; }
 .project-card-footer a:first-child { color: var(--accent); }
-.split-section { .split-section { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; } }
+.split-section { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; }
 .large-copy { font-size: clamp(1.6rem, 3vw, 2.7rem); line-height: 1.2; letter-spacing: -.03em; margin: 0; max-width: 650px; }
 .muted-copy { color: var(--muted); max-width: 570px; }
 .skill-groups { display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px; }
@@ -135,9 +135,9 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
 .career-direction .eyebrow { margin: 3px 0 0; }
 .career-direction > p:last-child { color: var(--muted); font-size: 20px; line-height: 1.45; max-width: 680px; margin: 0; }
 .contact-links { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); margin-top: 56px; }
-.contact-link { background: var(--background); padding: 24px; min-height: 160px; display: flex; flex-direction: column; transition: background .2s ease, color .2s ease; }
+.contact-link { background: var(--background); padding: 24px; min-height: 160px; display: flex; flex-direction: column; transition: background .2s ease, color .2s ease; overflow-wrap: break-word; word-break: break-word; }
 .contact-link:hover { background: var(--panel); }
-.contact-icon { display: grid; place-items: center; width: 28px; height: 28px; border: 1px solid var(--line); color: var(--accent); font: 600 12px var(--font-mono), monospace; margin-bottom: 28px; }
+.contact-icon { display: grid; place-items: center; width: 28px; height: 28px; border: 1px solid var(--line); color: var(--accent); font: 600 12px var(--font-mono), monospace; margin-bottom: 28px; flex-shrink: 0; }
 .contact-link > span:not(.contact-icon) { display: block; color: var(--quiet); font: 12px var(--font-mono), monospace; margin-bottom: 10px; }
 .contact-link strong { color: var(--accent); font-weight: 500; }
 .site-footer { border-top: 1px solid var(--line); color: var(--quiet); font: 12px var(--font-mono), monospace; }
@@ -147,9 +147,10 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
 .footer-links a:hover { color: var(--accent); }
 @media (max-width: 800px) {
 	.shell { width: min(100% - 32px, 620px); }
-	.desktop-nav { display: none; }
-	.header-inner { min-height: 68px; }
+	.header-inner { min-height: auto; flex-wrap: wrap; padding: 16px 0; gap: 16px; }
 	.brand-name { display: none; }
+	.main-nav { flex-basis: 100%; gap: 16px; overflow-x: auto; padding-bottom: 4px; margin-bottom: -4px; scrollbar-width: none; }
+	.main-nav::-webkit-scrollbar { display: none; }
 	.hero { padding: 80px 0 88px; }
 	.hero-grid, .split-section { grid-template-columns: 1fr; gap: 40px; }
 	.hero-status { margin-top: 24px; }
@@ -158,7 +159,7 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
 	.section-heading h2 { margin-top: 16px; }
 	.project-grid { grid-template-columns: 1fr; }
 	.skill-groups { grid-template-columns: 1fr; }
-	.contact-links { grid-template-columns: repeat(2, 1fr); }
+	.contact-links { grid-template-columns: 1fr; }
 	.case-study-hero { padding: 56px 0 72px; }
 	.case-study-hero .eyebrow { margin-top: 48px; }
 	.case-study-section { grid-template-columns: 1fr; gap: 24px; padding: 48px 0; }
